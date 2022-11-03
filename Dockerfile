@@ -20,6 +20,6 @@ FROM scratch
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /proxy /proxy
 
-EXPOSE 8080
+EXPOSE ${PORT}
 
 ENTRYPOINT ["/proxy"]

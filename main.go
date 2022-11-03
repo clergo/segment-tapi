@@ -63,7 +63,7 @@ func NewSegmentReverseProxy(cdn *url.URL, trackingAPI *url.URL) http.Handler {
 	return &httputil.ReverseProxy{Director: director}
 }
 
-var port = flag.String("port", "8080", "bind address")
+var port = flag.String("port", os.Getenv("PORT"), "bind address")
 var debug = flag.Bool("debug", false, "debug mode")
 
 func main() {
