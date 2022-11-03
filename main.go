@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"strings"
+	"fmt"
 
 	"github.com/gorilla/handlers"
 )
@@ -55,6 +56,7 @@ func NewSegmentReverseProxy(cdn *url.URL, trackingAPI *url.URL) http.Handler {
 		} else {
 			req.URL.RawQuery = targetQuery + "&" + req.URL.RawQuery
 		}
+		fmt.Print(req.URL.Path)
 
 		// Set the host of the request to the host of of the destination URL.
 		// See http://blog.semanticart.com/blog/2013/11/11/a-proper-api-proxy-written-in-go/.
